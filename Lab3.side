@@ -1,0 +1,259 @@
+{
+  "id": "a13ceb9a-d0c9-47b8-aec0-e763c8565096",
+  "version": "1.1",
+  "name": "Lab3",
+  "url": "https://rozetka.com.ua",
+  "tests": [{
+    "id": "0f818d66-02fc-49e4-be14-8053408b61b9",
+    "name": "Adding to cart items",
+    "commands": [{
+      "id": "e96bb203-f088-4b1c-9df2-37fc01a447fb",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "978b56a0-1761-441f-96b2-2d846b313a94",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dfc99cda-0769-4e1b-9abb-c339771f598b",
+      "comment": "",
+      "command": "click",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=input[name=\"text\"]", "css"],
+        ["css=.rz-header-search-input-text", "css:finder"],
+        ["xpath=//input[@name='text']", "xpath:attributes"],
+        ["xpath=//div[@id='rz-search']/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f54cf580-d2c4-4c78-bd9a-c57080a4739c",
+      "comment": "",
+      "command": "type",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=input[name=\"text\"]", "css"],
+        ["css=.rz-header-search-input-text", "css:finder"],
+        ["xpath=//input[@name='text']", "xpath:attributes"],
+        ["xpath=//div[@id='rz-search']/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Ноутбук"
+    }, {
+      "id": "f987a26e-972d-4d30-b938-7fac6b931469",
+      "comment": "",
+      "command": "submit",
+      "target": "name=rz-search-form",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3795885-8360-4d80-b71f-f44f86e3b53e",
+      "comment": "",
+      "command": "click",
+      "target": "css=img[alt=\"Для бизнеса\"]",
+      "targets": [
+        ["css=img[alt=\"Для бизнеса\"]", "css"],
+        ["css=.pab-row:nth-child(2) > .pab-cell:nth-child(3) > .clearfix img", "css:finder"],
+        ["xpath=//img[@alt='Для бизнеса']", "xpath:img"],
+        ["xpath=//div[@id='content-inner-block']/div[2]/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div[2]/div[3]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d252d0af-e99d-434d-884c-b0de7473ace5",
+      "comment": "",
+      "command": "click",
+      "target": "css=span.g-i-in-cart-link.xhr",
+      "targets": [
+        ["css=span.g-i-in-cart-link.xhr", "css"],
+        ["css=.g-i-in-cart-link", "css:finder"],
+        ["xpath=//div[@id='catalog_goods_block']/div/div/div/div/div/div/div[7]/div/div/div/a/span/span", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/div/a/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afbea6dc-7b95-4d37-a4a3-3ed5206a2a1b",
+      "comment": "",
+      "command": "click",
+      "target": "css=img.popup-close-icon.sprite",
+      "targets": [
+        ["css=img.popup-close-icon.sprite", "css"],
+        ["css=.popup-close-icon", "css:finder"],
+        ["xpath=//img[@alt='×']", "xpath:img"],
+        ["xpath=//div[@id='cart-popup']/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "277b0d87-e6c7-4a47-9448-30da040bae40",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hub-i-cart-link-count",
+      "targets": [
+        ["css=.hub-i-cart-link-count", "css:finder"],
+        ["xpath=//a[@onclick=\"document.fireEvent('openCart', {extend_event: [{name: 'eventLocation', value: 'Head'}]});\"]", "xpath:attributes"],
+        ["xpath=//div[@id='cart_block85508']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://my.rozetka.com.ua/cart/')]", "xpath:href"],
+        ["xpath=//li/div[2]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecee1fc5-3a5b-481c-aeda-8e65766a9e8d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.header-popup-cart-full-to-cart-inner",
+      "targets": [
+        ["css=.header-popup-cart-full-to-cart-inner", "css:finder"],
+        ["xpath=//div[@id='cart-popup-block']/div/a/span", "xpath:idRelative"],
+        ["xpath=//li/div/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a529a937-8587-4051-b40a-20de742fb3e1",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.header-popup-cart-full-to-cart-inner",
+      "targets": [
+        ["css=.header-popup-cart-full-to-cart-inner", "css:finder"],
+        ["xpath=//div[@id='cart-popup-block']/div/a/span", "xpath:idRelative"],
+        ["xpath=//li/div/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c0dcb8e-6142-4c3f-a703-5ad9b38d7ac0",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Перейти в корзину",
+      "targets": [
+        ["linkText=Перейти в корзину", "linkText"],
+        ["css=.header-popup-cart-full-to-cart", "css:finder"],
+        ["xpath=//a[@onclick=\"new Event(arguments[0]).stop(); Cart.openCart(); document.fireEvent('openCart');\"]", "xpath:attributes"],
+        ["xpath=//div[@id='cart-popup-block']/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff13508e-1e64-41f1-ab5d-b6427ceb9777",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=base_image",
+      "targets": [
+        ["id=base_image", "id"],
+        ["name=base_image", "name"],
+        ["css=#base_image", "css"],
+        ["css=#base_image", "css:finder"],
+        ["xpath=(//img[@alt='Ноутбук Dell Latitude 7370 (210-AHGT-M7-8-256-Al) Black'])[7]", "xpath:img"],
+        ["xpath=//img[@id='base_image']", "xpath:attributes"],
+        ["xpath=//div[@id='basic_image']/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddcb7420-390c-47dc-be33-8d536f85162e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=base_image",
+      "targets": [
+        ["id=base_image", "id"],
+        ["name=base_image", "name"],
+        ["css=#base_image", "css"],
+        ["css=#base_image", "css:finder"],
+        ["xpath=(//img[@alt='Ноутбук Dell Latitude 7370 (210-AHGT-M7-8-256-Al) Black'])[7]", "xpath:img"],
+        ["xpath=//img[@id='base_image']", "xpath:attributes"],
+        ["xpath=//div[@id='basic_image']/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be776d3c-9a56-4395-858c-254d175786ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hub-i-link > .xhr",
+      "targets": [
+        ["css=.hub-i-link > .xhr", "css:finder"],
+        ["xpath=//div[@id='cart_block85508']/a/span", "xpath:idRelative"],
+        ["xpath=//li/div[2]/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72dee65a-14ad-4ba9-846c-f6c0fecd4bc8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.hub-i-link > .xhr",
+      "targets": [
+        ["css=.hub-i-link > .xhr", "css:finder"],
+        ["xpath=//div[@id='cart_block85508']/a/span", "xpath:idRelative"],
+        ["xpath=//li/div[2]/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8262ce89-7bf7-4454-8417-d2911ab43632",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.hub-i-link > .xhr",
+      "targets": [
+        ["css=.hub-i-link > .xhr", "css:finder"],
+        ["xpath=//div[@id='cart_block85508']/a/span", "xpath:idRelative"],
+        ["xpath=//li/div[2]/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c918b97-9e51-42d8-88d1-661adca5a483",
+      "comment": "",
+      "command": "click",
+      "target": "id=cart-popup",
+      "targets": [
+        ["id=cart-popup", "id"],
+        ["css=#cart-popup", "css"],
+        ["css=#cart-popup", "css:finder"],
+        ["xpath=//div[@id='cart-popup']", "xpath:attributes"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d39060c-dde5-4ff6-9edf-5449b2280c24",
+      "comment": "",
+      "command": "click",
+      "target": "css=img.popup-close-icon.sprite",
+      "targets": [
+        ["css=img.popup-close-icon.sprite", "css"],
+        ["css=.popup-close-icon", "css:finder"],
+        ["xpath=//img[@alt='×']", "xpath:img"],
+        ["xpath=//div[@id='cart-popup']/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db01290a-5c55-440e-9ecc-ced0ec180810",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header-popup-cart-full-to-cart-inner",
+      "targets": [
+        ["css=.header-popup-cart-full-to-cart-inner", "css:finder"],
+        ["xpath=//div[@id='cart-popup-block']/div/a/span", "xpath:idRelative"],
+        ["xpath=//li/div/div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b816b32e-f5d4-43af-8003-aeacc6b5c2e7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0f818d66-02fc-49e4-be14-8053408b61b9"]
+  }],
+  "urls": ["https://rozetka.com.ua/"],
+  "plugins": []
+}
