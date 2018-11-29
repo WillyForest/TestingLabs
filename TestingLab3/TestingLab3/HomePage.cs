@@ -12,48 +12,58 @@ namespace TestingLab3
 {
     public class HomePage
     {
-        By taskName = By.XPath("//input");//By.XPath(".new-todo");
-        By submitTaskLocator = By.XPath("//form");
-        //By passwordLocator = By.Id("passwd");
-        //By loginButtonLocator = By.Id("login");
+        By taskInput = By.XPath("//input");
+        By taskForm = By.XPath("//form");
+        By checkbox = By.XPath("//div[@class=\"view\"]//input[@type=\"checkbox\"]");
+        By tdCount = By.XPath("//span[@class=\"todo-count\"]//strong");
 
         private IWebDriver _driver;
 
-        public HomePage()
+        public HomePage(IWebDriver driver)
         {
-            _driver = new ChromeDriver();
+            _driver = driver;
             _driver.Navigate().GoToUrl("http://todomvc.com/examples/angularjs/#/");
         }
 
         public HomePage typeTask(String task)
         {
             Actions builder = new Actions(_driver);
-            //WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(30));
-            //_driver.FindElement(taskName);
-
-            // element7.Click();
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(taskName));
+            IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(taskInput));
             myDynamicElement.Clear();
             myDynamicElement.Click();
             myDynamicElement.SendKeys(task);
-            IWebElement myDynamicElement2 = wait.Until<IWebElement>(d => d.FindElement(submitTaskLocator));
-            myDynamicElement2.Submit();
-            builder.SendKeys(Keys.Enter);
-            myDynamicElement.SendKeys(task);
-            builder.SendKeys(Keys.Enter);
-            myDynamicElement.SendKeys(task);
-            //builder.SendKeys(Keys.Enter);
-            //builder.SendKeys(Keys.Tab);
-            //builder.SendKeys(Keys.Enter);
-            //_driver.FindElement(taskName).SendKeys(task);
             return this;
         }
 
         public HomePage submitTask()
         {
-            //_driver.FindElement(submitTaskLocator).Submit();
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            IWebElement myDynamicElement2 = wait.Until<IWebElement>(d => d.FindElement(taskForm));
+            myDynamicElement2.Submit();
             return this;
+        }
+
+        public HomePage checkTask()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            IWebElement myDynamicElement2 = wait.Until<IWebElement>(d => d.FindElement(checkbox));
+            myDynamicElement2.Click();
+            return this;
+        }
+
+        public string isChecked()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            IWebElement myDynamicElement2 = wait.Until<IWebElement>(d => d.FindElement(checkbox));
+            return myDynamicElement2.GetAttribute("checked");
+        }
+
+        public string todoCount()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            IWebElement myDynamicElement2 = wait.Until<IWebElement>(d => d.FindElement(tdCount));
+            return myDynamicElement2.Text;
         }
 
         public string GetTitle()
@@ -63,8 +73,8 @@ namespace TestingLab3
 
         public void Dispose()
         {
-            //_driver.Close();
-            //_driver.Quit();
+            _driver.Close();
+            _driver.Quit();
         }
     }
 }

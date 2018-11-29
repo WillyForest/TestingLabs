@@ -16,40 +16,56 @@ namespace TestingLab3
             
         }
 
-        //IWebDriver webDriver = new ChromeDriver();
-
-        //[Test]
-        //public void MyFirstTest()
-        //{
-        //    webDriver.Navigate().GoToUrl("http://todomvc.com/examples/angularjs/#/");
-
-        //    Assert.AreEqual("AngularJS • TodoMVC", webDriver.Title);
-
-        //    webDriver.Close();
-
-        //    webDriver.Quit();
-        //}
+        IWebDriver webDriver = new ChromeDriver();
 
         [Test]
-        public void SecondTest()
+        public void MyFirstTest()
         {
-            //webDriver.Navigate().GoToUrl("http://todomvc.com/examples/angularjs/#/");
+            webDriver.Navigate().GoToUrl("http://todomvc.com/examples/angularjs/#/");
 
-            
+            Assert.AreEqual("AngularJS • TodoMVC", webDriver.Title);
 
-            HomePage homePage = new HomePage();
-
-
-            homePage.typeTask("todo1");
-            homePage.submitTask();
-
-            Assert.AreEqual("AngularJS • TodoMVC", homePage.GetTitle());
-
-            homePage.Dispose();
             //webDriver.Close();
 
             //webDriver.Quit();
         }
-    }
 
+        [Test]
+        public void SecondTest()
+        {
+            HomePage homePage = new HomePage(webDriver);
+            homePage.typeTask("LAB3 QA");
+            homePage.submitTask();
+
+            string check = homePage.todoCount();
+
+            homePage.checkTask();
+            homePage.typeTask(check);
+            homePage.submitTask();
+
+            //homePage.typeTask("LAB1 QA");
+            //homePage.submitTask();
+
+            Assert.AreEqual(check, homePage.todoCount());
+
+            //homePage.Dispose();
+        }
+
+        [Test]
+        public void ThirdTest()
+        {
+            HomePage homePage = new HomePage(webDriver);
+
+            string check = homePage.todoCount();
+            for (int i = 0; i < 5; i++)
+            {
+                homePage.typeTask(string.Format("task N{0}", i));
+                homePage.submitTask();
+            }
+
+            Assert.AreNotEqual(check, homePage.todoCount());
+
+            homePage.Dispose();
+        }
+    }
 }
