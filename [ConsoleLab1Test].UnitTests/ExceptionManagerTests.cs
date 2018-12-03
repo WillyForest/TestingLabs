@@ -15,8 +15,9 @@ namespace _ConsoleLab1Test_.UnitTests
         [Test]
         public void IsExceptionCritical_CriticalExceptions_ReturnsTrue()
         {
-            ExceptionManager exceptionManager = new ExceptionManager();
-            FileNotFoundException exception = new FileNotFoundException(); 
+            ICriticalExceptionsManager criticalExceptionsManager = new FakeCriticalExceptionsManager(true);
+            ExceptionManager exceptionManager = new ExceptionManager(criticalExceptionsManager);
+            FileNotFoundException exception = new FileNotFoundException();
 
             bool result = exceptionManager.IsExceptionCritical(exception);
 
@@ -26,9 +27,10 @@ namespace _ConsoleLab1Test_.UnitTests
         [Test]
         public void IsExceptionCritical_NonCriticalExceptions_ReturnsFalse()
         {
-            ExceptionManager exceptionManager = new ExceptionManager();
+            ICriticalExceptionsManager criticalExceptionsManager = new FakeCriticalExceptionsManager(true);
+            ExceptionManager exceptionManager = new ExceptionManager(criticalExceptionsManager);
             //ArithmeticException exception = new ArithmeticException(); 
-            FileNotFoundException exception = new FileNotFoundException(); 
+            FileNotFoundException exception = new FileNotFoundException();
 
             bool result = exceptionManager.IsExceptionCritical(exception);
 
@@ -38,7 +40,9 @@ namespace _ConsoleLab1Test_.UnitTests
         [Test]
         public void ProcessException_CriticalExceptions_ReturnsTrue()
         {
-            ExceptionManager exceptionManager = new ExceptionManager();
+            ICriticalExceptionsManager criticalExceptionsManager = new FakeCriticalExceptionsManager(true);
+            ExceptionManager exceptionManager = new ExceptionManager(criticalExceptionsManager);
+            exceptionManager.SendExceptionService = new FakeSendExceptionService(true);
             FileNotFoundException exception = new FileNotFoundException();
             int before = exceptionManager.GetCriticalExceptionsCount();
 
@@ -51,7 +55,9 @@ namespace _ConsoleLab1Test_.UnitTests
         [Test]
         public void ProcessException_NonCriticalExceptions_ReturnsTrue()
         {
-            ExceptionManager exceptionManager = new ExceptionManager();
+            ICriticalExceptionsManager criticalExceptionsManager = new FakeCriticalExceptionsManager(true);
+            ExceptionManager exceptionManager = new ExceptionManager(criticalExceptionsManager);
+            exceptionManager.SendExceptionService = new FakeSendExceptionService(true);
             FileNotFoundException exception = new FileNotFoundException();
             int before = exceptionManager.GetNonCriticalExceptionsCount();
 
@@ -66,7 +72,9 @@ namespace _ConsoleLab1Test_.UnitTests
         [TestCase(4, 6)]
         public void ProcessException_CriticalExceptionsCounterWorking_ReturnsTrue(int criticalCount, int normalCount)
         {
-            ExceptionManager exceptionManager = new ExceptionManager();
+            ICriticalExceptionsManager criticalExceptionsManager = new FakeCriticalExceptionsManager(true);
+            ExceptionManager exceptionManager = new ExceptionManager(criticalExceptionsManager);
+            exceptionManager.SendExceptionService = new FakeSendExceptionService(true);
             FileNotFoundException criticalException = new FileNotFoundException();
             ArithmeticException normalException = new ArithmeticException();
             int before = exceptionManager.GetCriticalExceptionsCount();
@@ -79,10 +87,43 @@ namespace _ConsoleLab1Test_.UnitTests
             {
                 exceptionManager.ProcessException(normalException);
             }
-            
+
 
             int after = exceptionManager.GetCriticalExceptionsCount();
             Assert.True((before + criticalCount) == after);
+        }
+    }
+
+    public class FakeCriticalExceptionsManager : ICriticalExceptionsManager
+    {
+        bool _returnsTrue = true;
+        public FakeCriticalExceptionsManager(bool returnsTrue = true)
+        {
+            _returnsTrue = returnsTrue;
+        }
+
+        public List<string> GetCriticalExceptions()
+        {
+            return new List<string>();
+        }
+
+        public bool IsExceptionCritical(Exception exception)
+        {
+            return _returnsTrue;
+        }
+    }
+
+    public class FakeSendExceptionService : ISendExceptionService
+    {
+        bool _returnsTrue = true;
+        public FakeSendExceptionService(bool returnsTrue = true)
+        {
+            _returnsTrue = returnsTrue;
+        }
+
+        public bool SendWarningToServer(Exception exception)
+        {
+            return _returnsTrue;
         }
     }
 }

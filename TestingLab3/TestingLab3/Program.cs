@@ -57,7 +57,7 @@ namespace TestingLab3
             HomePage homePage = new HomePage(webDriver);
 
             string check = homePage.todoCount();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 homePage.typeTask(string.Format("task N{0}", i));
                 homePage.submitTask();
