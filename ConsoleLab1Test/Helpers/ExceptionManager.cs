@@ -13,6 +13,16 @@ namespace ConsoleLab1Test.Helpers
 
         public ICriticalExceptionsManager manager;
         public ISendExceptionService service;
+        //public virtual ICriticalExceptionsManager getCriticalExceptionsManager()
+        //{
+        //    return new CriticalExceptionsManager();
+        //}
+
+        //public bool IsExceptionCritical(Exception exception)
+        //{
+        //    ICriticalExceptionsManager manager = getCriticalExceptionsManager();
+        //    return manager.IsExceptionCritical(exception);
+        //}
 
         public ISendExceptionService SendExceptionService
         {

@@ -92,7 +92,27 @@ namespace _ConsoleLab1Test_.UnitTests
             int after = exceptionManager.GetCriticalExceptionsCount();
             Assert.True((before + criticalCount) == after);
         }
+
     }
+
+    //public class TestClass : ExceptionManager
+    //{
+    //    public ICriticalExceptionsManager _manager;
+
+    //    public override ICriticalExceptionsManager getCriticalExceptionsManager()
+    //    {
+    //        return _manager;
+    //    }
+        
+    //    public void IsExceptionCritical_CriticalExceptions_ReturnsTrue()
+    //    {
+    //        FileNotFoundException exception = new FileNotFoundException();
+
+    //        bool result = _manager.IsExceptionCritical(exception);
+
+    //        Assert.True(result);
+    //    }
+    //}
 
     public class FakeCriticalExceptionsManager : ICriticalExceptionsManager
     {
